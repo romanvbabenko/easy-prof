@@ -13,8 +13,8 @@ module EasyProfiler
     def initialize(name, config = nil)
       @name = name
       @config = case config
-        when Hash: EasyProfiler.configuration.merge(config)
-        when EasyProfiler::Configuration: config
+        when Hash then EasyProfiler.configuration.merge(config)
+        when EasyProfiler::Configuration then config
         else EasyProfiler.configuration
       end
 
